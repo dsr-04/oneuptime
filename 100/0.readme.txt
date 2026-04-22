@@ -1,0 +1,18 @@
+
+1. Open any page with Chrome
+2. Press F12 → go to Console
+3. Paste scripts: (at first, you must typing "allow paste" + Enter and paste scripts such as bottom.)
+4. It will be download in several tabs at the same time.
+
+
+
+const urls = [
+  "https://raw.githubusercontent.com/dsr-04/oneuptime/main/100/1.ceph_oneuptime.tar.bz2_aa",
+  "https://raw.githubusercontent.com/dsr-04/oneuptime/main/100/1.ceph_oneuptime.tar.bz2_ab",
+  "https://raw.githubusercontent.com/dsr-04/oneuptime/main/100/1.ceph_oneuptime.tar.bz2_ac",
+  "https://raw.githubusercontent.com/dsr-04/oneuptime/main/100/1.ceph_oneuptime.tar.bz2_ad"
+];
+
+// open each file in a new tab
+urls.forEach((url) => window.open(url, "_blank", "noopener,noreferrer"));
+
