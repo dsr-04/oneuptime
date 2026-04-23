@@ -1,0 +1,59 @@
+
+1. Open any page with Chrome
+2. Press F12 → go to Console
+3. Paste scripts: (at first, you must typing "allow paste" + Enter and paste scripts such as bottom.)
+4. It will be download in several tabs at the same time.
+
+
+
+const urls = [
+  "https://raw.githubusercontent.com/dsr-04/oneuptime/main/200/2.other_containers.tar_aa",
+  "https://raw.githubusercontent.com/dsr-04/oneuptime/main/200/2.other_containers.tar_ab",
+  "https://raw.githubusercontent.com/dsr-04/oneuptime/main/200/2.other_containers.tar_ac",
+  "https://raw.githubusercontent.com/dsr-04/oneuptime/main/200/2.other_containers.tar_ad",
+  "https://raw.githubusercontent.com/dsr-04/oneuptime/main/200/2.other_containers.tar_ae",
+  "https://raw.githubusercontent.com/dsr-04/oneuptime/main/200/2.other_containers.tar_af",
+  "https://raw.githubusercontent.com/dsr-04/oneuptime/main/200/2.other_containers.tar_ag",
+  "https://raw.githubusercontent.com/dsr-04/oneuptime/main/200/2.other_containers.tar_ah",
+  "https://raw.githubusercontent.com/dsr-04/oneuptime/main/200/2.other_containers.tar_ai",
+  "https://raw.githubusercontent.com/dsr-04/oneuptime/main/200/2.other_containers.tar_aj",
+  "https://raw.githubusercontent.com/dsr-04/oneuptime/main/200/2.other_containers.tar_ak",
+  "https://raw.githubusercontent.com/dsr-04/oneuptime/main/200/2.other_containers.tar_al",
+  "https://raw.githubusercontent.com/dsr-04/oneuptime/main/200/2.other_containers.tar_am",
+  "https://raw.githubusercontent.com/dsr-04/oneuptime/main/200/2.other_containers.tar_an",
+  "https://raw.githubusercontent.com/dsr-04/oneuptime/main/200/2.other_containers.tar_ao",
+  "https://raw.githubusercontent.com/dsr-04/oneuptime/main/200/2.other_containers.tar_ap",
+  "https://raw.githubusercontent.com/dsr-04/oneuptime/main/200/2.other_containers.tar_aq",
+  "https://raw.githubusercontent.com/dsr-04/oneuptime/main/200/2.other_containers.tar_ar",
+  "https://raw.githubusercontent.com/dsr-04/oneuptime/main/200/2.other_containers.tar_as",
+  "https://raw.githubusercontent.com/dsr-04/oneuptime/main/200/2.other_containers.tar_at",
+  "https://raw.githubusercontent.com/dsr-04/oneuptime/main/200/2.other_containers.tar_au",
+  "https://raw.githubusercontent.com/dsr-04/oneuptime/main/200/2.other_containers.tar_av",
+  "https://raw.githubusercontent.com/dsr-04/oneuptime/main/200/2.other_containers.tar_aw",
+  "https://raw.githubusercontent.com/dsr-04/oneuptime/main/200/2.other_containers.tar_ax",
+  "https://raw.githubusercontent.com/dsr-04/oneuptime/main/200/2.other_containers.tar_ay",
+  "https://raw.githubusercontent.com/dsr-04/oneuptime/main/200/2.other_containers.tar_az",
+  "https://raw.githubusercontent.com/dsr-04/oneuptime/main/200/2.other_containers.tar_ba",
+  "https://raw.githubusercontent.com/dsr-04/oneuptime/main/200/2.other_containers.tar_bb",
+  "https://raw.githubusercontent.com/dsr-04/oneuptime/main/200/2.other_containers.tar_bc",
+  "https://raw.githubusercontent.com/dsr-04/oneuptime/main/200/2.other_containers.tar_bd",
+  "https://raw.githubusercontent.com/dsr-04/oneuptime/main/200/2.other_containers.tar_be",
+  "https://raw.githubusercontent.com/dsr-04/oneuptime/main/200/2.other_containers.tar_bf",
+  "https://raw.githubusercontent.com/dsr-04/oneuptime/main/200/2.other_containers.tar_bg",
+  "https://raw.githubusercontent.com/dsr-04/oneuptime/main/200/2.other_containers.tar_bh",
+  "https://raw.githubusercontent.com/dsr-04/oneuptime/main/200/2.other_containers.tar_bi",
+  "https://raw.githubusercontent.com/dsr-04/oneuptime/main/200/2.other_containers.tar_bj",
+  "https://raw.githubusercontent.com/dsr-04/oneuptime/main/200/2.other_containers.tar_bk",
+  "https://raw.githubusercontent.com/dsr-04/oneuptime/main/200/2.other_containers.tar_bl",
+  "https://raw.githubusercontent.com/dsr-04/oneuptime/main/200/2.other_containers.tar_bm",
+  "https://raw.githubusercontent.com/dsr-04/oneuptime/main/200/2.other_containers.tar_bn",
+  "https://raw.githubusercontent.com/dsr-04/oneuptime/main/200/2.other_containers.tar_bo",
+  "https://raw.githubusercontent.com/dsr-04/oneuptime/main/200/2.other_containers.tar_bp",
+  "https://raw.githubusercontent.com/dsr-04/oneuptime/main/200/2.other_containers.tar_bq",
+  "https://raw.githubusercontent.com/dsr-04/oneuptime/main/200/2.other_containers.tar_br",
+  "https://raw.githubusercontent.com/dsr-04/oneuptime/main/200/2.other_containers.tar_bs"
+];
+
+// open each file in a new tab
+urls.forEach((url) => window.open(url, "_blank", "noopener,noreferrer"));
+
