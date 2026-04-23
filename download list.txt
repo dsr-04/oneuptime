@@ -1,147 +1,112 @@
-- Dokany library
+const urls = [
+  "https://raw.githubusercontent.com/dsr-04/oneuptime/main/100/1.ceph_oneuptime.tar.bz2_aa",
+  "https://raw.githubusercontent.com/dsr-04/oneuptime/main/100/1.ceph_oneuptime.tar.bz2_ab",
+  "https://raw.githubusercontent.com/dsr-04/oneuptime/main/100/1.ceph_oneuptime.tar.bz2_ac",
+  "https://raw.githubusercontent.com/dsr-04/oneuptime/main/100/1.ceph_oneuptime.tar.bz2_ad",
+  "https://raw.githubusercontent.com/dsr-04/oneuptime/main/100/1.ceph_oneuptime.tar.bz2_ae",
+  "https://raw.githubusercontent.com/dsr-04/oneuptime/main/100/1.ceph_oneuptime.tar.bz2_af",
+  "https://raw.githubusercontent.com/dsr-04/oneuptime/main/100/1.ceph_oneuptime.tar.bz2_ag",
+  "https://raw.githubusercontent.com/dsr-04/oneuptime/main/100/1.ceph_oneuptime.tar.bz2_ah",
+  "https://raw.githubusercontent.com/dsr-04/oneuptime/main/100/1.ceph_oneuptime.tar.bz2_ai",
+  "https://raw.githubusercontent.com/dsr-04/oneuptime/main/100/1.ceph_oneuptime.tar.bz2_aj",
+  "https://raw.githubusercontent.com/dsr-04/oneuptime/main/100/1.ceph_oneuptime.tar.bz2_ak",
+  "https://raw.githubusercontent.com/dsr-04/oneuptime/main/100/1.ceph_oneuptime.tar.bz2_al",
+  "https://raw.githubusercontent.com/dsr-04/oneuptime/main/100/1.ceph_oneuptime.tar.bz2_am",
+  "https://raw.githubusercontent.com/dsr-04/oneuptime/main/100/1.ceph_oneuptime.tar.bz2_an",
+  "https://raw.githubusercontent.com/dsr-04/oneuptime/main/100/1.ceph_oneuptime.tar.bz2_ao",
+  "https://raw.githubusercontent.com/dsr-04/oneuptime/main/100/1.ceph_oneuptime.tar.bz2_ap",
+  "https://raw.githubusercontent.com/dsr-04/oneuptime/main/100/1.ceph_oneuptime.tar.bz2_aq",
+  "https://raw.githubusercontent.com/dsr-04/oneuptime/main/100/1.ceph_oneuptime.tar.bz2_ar",
+  "https://raw.githubusercontent.com/dsr-04/oneuptime/main/100/1.ceph_oneuptime.tar.bz2_as",
+  "https://raw.githubusercontent.com/dsr-04/oneuptime/main/100/1.ceph_oneuptime.tar.bz2_at",
+  "https://raw.githubusercontent.com/dsr-04/oneuptime/main/100/1.ceph_oneuptime.tar.bz2_au",
+  "https://raw.githubusercontent.com/dsr-04/oneuptime/main/100/1.ceph_oneuptime.tar.bz2_av",
+  "https://raw.githubusercontent.com/dsr-04/oneuptime/main/100/1.ceph_oneuptime.tar.bz2_aw",
+  "https://raw.githubusercontent.com/dsr-04/oneuptime/main/100/1.ceph_oneuptime.tar.bz2_ax",
+  "https://raw.githubusercontent.com/dsr-04/oneuptime/main/100/1.ceph_oneuptime.tar.bz2_ay",
+  "https://raw.githubusercontent.com/dsr-04/oneuptime/main/100/1.ceph_oneuptime.tar.bz2_az",
+  "https://raw.githubusercontent.com/dsr-04/oneuptime/main/100/1.ceph_oneuptime.tar.bz2_ba",
+  "https://raw.githubusercontent.com/dsr-04/oneuptime/main/100/1.ceph_oneuptime.tar.bz2_bb",
+  "https://raw.githubusercontent.com/dsr-04/oneuptime/main/100/1.ceph_oneuptime.tar.bz2_bc",
+  "https://raw.githubusercontent.com/dsr-04/oneuptime/main/100/1.ceph_oneuptime.tar.bz2_bd",
+  "https://raw.githubusercontent.com/dsr-04/oneuptime/main/100/1.ceph_oneuptime.tar.bz2_be",
+  "https://raw.githubusercontent.com/dsr-04/oneuptime/main/100/1.ceph_oneuptime.tar.bz2_bf",
+  "https://raw.githubusercontent.com/dsr-04/oneuptime/main/100/1.ceph_oneuptime.tar.bz2_bg",
+  "https://raw.githubusercontent.com/dsr-04/oneuptime/main/100/1.ceph_oneuptime.tar.bz2_bh",
+  "https://raw.githubusercontent.com/dsr-04/oneuptime/main/100/1.ceph_oneuptime.tar.bz2_bi",
+  "https://raw.githubusercontent.com/dsr-04/oneuptime/main/100/1.ceph_oneuptime.tar.bz2_bj",
+  "https://raw.githubusercontent.com/dsr-04/oneuptime/main/100/1.ceph_oneuptime.tar.bz2_bk",
+  "https://raw.githubusercontent.com/dsr-04/oneuptime/main/100/1.ceph_oneuptime.tar.bz2_bl",
+  "https://raw.githubusercontent.com/dsr-04/oneuptime/main/100/1.ceph_oneuptime.tar.bz2_bm",
+  "https://raw.githubusercontent.com/dsr-04/oneuptime/main/100/1.ceph_oneuptime.tar.bz2_bn",
+  "https://raw.githubusercontent.com/dsr-04/oneuptime/main/100/1.ceph_oneuptime.tar.bz2_bo",
+  "https://raw.githubusercontent.com/dsr-04/oneuptime/main/100/1.ceph_oneuptime.tar.bz2_bp",
+  "https://raw.githubusercontent.com/dsr-04/oneuptime/main/100/1.ceph_oneuptime.tar.bz2_bq",
+  "https://raw.githubusercontent.com/dsr-04/oneuptime/main/100/1.ceph_oneuptime.tar.bz2_br",
+  "https://raw.githubusercontent.com/dsr-04/oneuptime/main/100/1.ceph_oneuptime.tar.bz2_bs",
+  "https://raw.githubusercontent.com/dsr-04/oneuptime/main/100/1.ceph_oneuptime.tar.bz2_bt",
+  "https://raw.githubusercontent.com/dsr-04/oneuptime/main/100/1.ceph_oneuptime.tar.bz2_bu",
+  "https://raw.githubusercontent.com/dsr-04/oneuptime/main/100/1.ceph_oneuptime.tar.bz2_bv",
+  "https://raw.githubusercontent.com/dsr-04/oneuptime/main/100/1.ceph_oneuptime.tar.bz2_bw",
+  "https://raw.githubusercontent.com/dsr-04/oneuptime/main/100/1.ceph_oneuptime.tar.bz2_bx",
+  "https://raw.githubusercontent.com/dsr-04/oneuptime/main/100/1.ceph_oneuptime.tar.bz2_by",
+  "https://raw.githubusercontent.com/dsr-04/oneuptime/main/100/1.ceph_oneuptime.tar.bz2_bz",
+  "https://raw.githubusercontent.com/dsr-04/oneuptime/main/100/1.ceph_oneuptime.tar.bz2_ca",
+  "https://raw.githubusercontent.com/dsr-04/oneuptime/main/100/1.ceph_oneuptime.tar.bz2_cb",
+  "https://raw.githubusercontent.com/dsr-04/oneuptime/main/100/1.ceph_oneuptime.tar.bz2_cc",
+  "https://raw.githubusercontent.com/dsr-04/oneuptime/main/100/1.ceph_oneuptime.tar.bz2_cd",
+  "https://raw.githubusercontent.com/dsr-04/oneuptime/main/100/1.ceph_oneuptime.tar.bz2_ce",
+  "https://raw.githubusercontent.com/dsr-04/oneuptime/main/100/1.ceph_oneuptime.tar.bz2_cf",
+  "https://raw.githubusercontent.com/dsr-04/oneuptime/main/100/1.ceph_oneuptime.tar.bz2_cg",
+  "https://raw.githubusercontent.com/dsr-04/oneuptime/main/100/1.ceph_oneuptime.tar.bz2_ch",
+  "https://raw.githubusercontent.com/dsr-04/oneuptime/main/100/1.ceph_oneuptime.tar.bz2_ci",
 
-- rhceph9 - rhel9 srpms, rpms
-https://public.dhe.ibm.com/ibmdl/export/pub/storage/ceph/9/rhel9/
-https://uk.ceph.com/rpm-20.2.0/el9/SRPMS
-https://download.ceph.com/rpm-tentacle/el9/x86_64/ceph-20.2.1-0.el9.x86_64.rpm   
-https://mirror.math.princeton.edu/pub/ceph/
-https://mirror.bahnhof.net/pub/fedora/linux/development/rawhide/Everything/source/tree/Packages/c/ceph-20.2.0-10.fc45.src.rpm  
-https://rpm.pbone.net/
+  "https://raw.githubusercontent.com/dsr-04/oneuptime/main/200/2.other_containers.tar_aa",
+  "https://raw.githubusercontent.com/dsr-04/oneuptime/main/200/2.other_containers.tar_ab",
+  "https://raw.githubusercontent.com/dsr-04/oneuptime/main/200/2.other_containers.tar_ac",
+  "https://raw.githubusercontent.com/dsr-04/oneuptime/main/200/2.other_containers.tar_ad",
+  "https://raw.githubusercontent.com/dsr-04/oneuptime/main/200/2.other_containers.tar_ae",
+  "https://raw.githubusercontent.com/dsr-04/oneuptime/main/200/2.other_containers.tar_af",
+  "https://raw.githubusercontent.com/dsr-04/oneuptime/main/200/2.other_containers.tar_ag",
+  "https://raw.githubusercontent.com/dsr-04/oneuptime/main/200/2.other_containers.tar_ah",
+  "https://raw.githubusercontent.com/dsr-04/oneuptime/main/200/2.other_containers.tar_ai",
+  "https://raw.githubusercontent.com/dsr-04/oneuptime/main/200/2.other_containers.tar_aj",
+  "https://raw.githubusercontent.com/dsr-04/oneuptime/main/200/2.other_containers.tar_ak",
+  "https://raw.githubusercontent.com/dsr-04/oneuptime/main/200/2.other_containers.tar_al",
+  "https://raw.githubusercontent.com/dsr-04/oneuptime/main/200/2.other_containers.tar_am",
+  "https://raw.githubusercontent.com/dsr-04/oneuptime/main/200/2.other_containers.tar_an",
+  "https://raw.githubusercontent.com/dsr-04/oneuptime/main/200/2.other_containers.tar_ao",
+  "https://raw.githubusercontent.com/dsr-04/oneuptime/main/200/2.other_containers.tar_ap",
+  "https://raw.githubusercontent.com/dsr-04/oneuptime/main/200/2.other_containers.tar_aq",
+  "https://raw.githubusercontent.com/dsr-04/oneuptime/main/200/2.other_containers.tar_ar",
+  "https://raw.githubusercontent.com/dsr-04/oneuptime/main/200/2.other_containers.tar_as",
+  "https://raw.githubusercontent.com/dsr-04/oneuptime/main/200/2.other_containers.tar_at",
+  "https://raw.githubusercontent.com/dsr-04/oneuptime/main/200/2.other_containers.tar_au",
+  "https://raw.githubusercontent.com/dsr-04/oneuptime/main/200/2.other_containers.tar_av",
+  "https://raw.githubusercontent.com/dsr-04/oneuptime/main/200/2.other_containers.tar_aw",
+  "https://raw.githubusercontent.com/dsr-04/oneuptime/main/200/2.other_containers.tar_ax",
+  "https://raw.githubusercontent.com/dsr-04/oneuptime/main/200/2.other_containers.tar_ay",
+  "https://raw.githubusercontent.com/dsr-04/oneuptime/main/200/2.other_containers.tar_az",
+  "https://raw.githubusercontent.com/dsr-04/oneuptime/main/200/2.other_containers.tar_ba",
+  "https://raw.githubusercontent.com/dsr-04/oneuptime/main/200/2.other_containers.tar_bb",
+  "https://raw.githubusercontent.com/dsr-04/oneuptime/main/200/2.other_containers.tar_bc",
+  "https://raw.githubusercontent.com/dsr-04/oneuptime/main/200/2.other_containers.tar_bd",
+  "https://raw.githubusercontent.com/dsr-04/oneuptime/main/200/2.other_containers.tar_be",
+  "https://raw.githubusercontent.com/dsr-04/oneuptime/main/200/2.other_containers.tar_bf",
+  "https://raw.githubusercontent.com/dsr-04/oneuptime/main/200/2.other_containers.tar_bg",
+  "https://raw.githubusercontent.com/dsr-04/oneuptime/main/200/2.other_containers.tar_bh",
+  "https://raw.githubusercontent.com/dsr-04/oneuptime/main/200/2.other_containers.tar_bi",
+  "https://raw.githubusercontent.com/dsr-04/oneuptime/main/200/2.other_containers.tar_bj",
+  "https://raw.githubusercontent.com/dsr-04/oneuptime/main/200/2.other_containers.tar_bk",
+  "https://raw.githubusercontent.com/dsr-04/oneuptime/main/200/2.other_containers.tar_bl",
+  "https://raw.githubusercontent.com/dsr-04/oneuptime/main/200/2.other_containers.tar_bm",
+  "https://raw.githubusercontent.com/dsr-04/oneuptime/main/200/2.other_containers.tar_bn",
+  "https://raw.githubusercontent.com/dsr-04/oneuptime/main/200/2.other_containers.tar_bo",
+  "https://raw.githubusercontent.com/dsr-04/oneuptime/main/200/2.other_containers.tar_bp",
+  "https://raw.githubusercontent.com/dsr-04/oneuptime/main/200/2.other_containers.tar_bq",
+  "https://raw.githubusercontent.com/dsr-04/oneuptime/main/200/2.other_containers.tar_br",
+  "https://raw.githubusercontent.com/dsr-04/oneuptime/main/200/2.other_containers.tar_bs"
+];
 
-
-rar rpm or binary
-
-el9cp ceph container 20 el9cp and dependences images
-- mgr/cephadm/container_image_prometheus = cp.icr.io/cp/ibm-ceph/prometheus:v4.15
-- mgr/cephadm/container_image_loki = cp.icr.io/cp/ibm-ceph/logging-loki-rhel8:v3.1.0
-- mgr/cephadm/container_image_promtail = cp.icr.io/cp/ibm-ceph/promtail-rhel9:v3.0.0
-mgr/cephadm/container_image_alloy = cp.icr.io/cp/ibm-ceph/alloy-rhel10:latest
-- mgr/cephadm/container_image_node_exporter = cp.icr.io/cp/ibm-ceph/prometheus-node-exporter:v4.15
-- mgr/cephadm/container_image_alertmanager = cp.icr.io/cp/ibm-ceph/prometheus-alertmanager:v4.15
-- mgr/cephadm/container_image_grafana = cp.icr.io/cp/ibm-ceph/grafana-rhel10:latest
-- mgr/cephadm/container_image_haproxy = cp.icr.io/cp/ibm-ceph/haproxy-rhel9:latest
-- mgr/cephadm/container_image_keepalived = cp.icr.io/cp/ibm-ceph/keepalived-rhel10:latest
-- mgr/cephadm/container_image_nvmeof = cp.icr.io/cp/ibm-ceph/nvmeof-rhel9:1.5
-- mgr/cephadm/container_image_snmp_gateway = cp.icr.io/cp/ibm-ceph/snmp-notifier-rhel10:latest
-- mgr/cephadm/container_image_elasticsearch = quay.io/omrizeneva/elasticsearch:6.8.23
-- mgr/cephadm/container_image_jaeger_collector = quay.io/jaegertracing/jaeger-collector:1.29
-- mgr/cephadm/container_image_jaeger_agent = quay.io/jaegertracing/jaeger-agent:1.29
-- mgr/cephadm/container_image_jaeger_query = quay.io/jaegertracing/jaeger-query:1.29
-- mgr/cephadm/container_image_samba = cp.icr.io/cp/ibm-ceph/samba-server-rhel10:v9.0
-- mgr/cephadm/container_image_samba_metrics = cp.icr.io/cp/ibm-ceph/samba-metrics-rhel10:v9.0
-- mgr/cephadm/container_image_nginx = cp.icr.io/cp/ibm-ceph/nginx-124-rhel9:latest
-mgr/cephadm/container_image_oauth2_proxy = cp.icr.io/cp/ibm-ceph/oauth2-proxy-rhel9:v7.6.0
-
-el9 ceph container 20 el9cp and dependences images
-- - mgr/cephadm/container_image_prometheus = quay.io/prometheus/prometheus:v3.6.0
-- - mgr/cephadm/container_image_loki = docker.io/grafana/loki:3.0.0
-- - mgr/cephadm/container_image_promtail = docker.io/grafana/promtail:3.0.0
-- - mgr/cephadm/container_image_node_exporter = quay.io/prometheus/node-exporter:v1.9.1
-- - mgr/cephadm/container_image_alertmanager = quay.io/prometheus/alertmanager:v0.28.1
-- - mgr/cephadm/container_image_grafana = quay.io/ceph/grafana:12.2.0
-- - mgr/cephadm/container_image_haproxy = quay.io/ceph/haproxy:2.3
-- - mgr/cephadm/container_image_keepalived = quay.io/ceph/keepalived:2.2.4
-- mgr/cephadm/container_image_nvmeof = quay.io/ceph/nvmeof:1.5
-- mgr/cephadm/container_image_snmp_gateway = docker.io/maxwo/snmp-notifier:v1.2.1
-- mgr/cephadm/container_image_elasticsearch = quay.io/omrizeneva/elasticsearch:6.8.23
-- mgr/cephadm/container_image_jaeger_collector = quay.io/jaegertracing/jaeger-collector:1.29
-- mgr/cephadm/container_image_jaeger_agent = quay.io/jaegertracing/jaeger-agent:1.29
-- mgr/cephadm/container_image_jaeger_query = quay.io/jaegertracing/jaeger-query:1.29
-- mgr/cephadm/container_image_samba = quay.io/samba.org/samba-server:ceph20-centos-amd64
-- mgr/cephadm/container_image_samba_metrics = quay.io/samba.org/samba-metrics:ceph20-centos-amd64
-- mgr/cephadm/container_image_nginx = quay.io/ceph/nginx:sclorg-nginx-126
-- mgr/cephadm/container_image_oauth2_proxy = quay.io/oauth2-proxy/oauth2-proxy:v7.6.0
-
-
-	podman pull quay.io/ceph/ceph:v18.2.8-20260313
-	podman pull quay.io/ceph/ceph:v20.2.0-20260312
-	podman pull quay.io/ceph/grafana:9.5.9
-	podman pull quay.io/ceph/grafana:12.2.0
-	podman pull quay.io/ceph/nvmeof:1.5
-	podman pull quay.io/ceph/nvmeof:1.6.10
-	podman pull quay.io/ceph/nvmeof-cli:1.5.26
-	podman pull quay.io/ceph/nvmeof-cli:1.6.10
-	podman pull quay.io/ceph/ceph-grafana:9.4.12
-	podman pull quay.io/ceph/keepalived:2.2.4
-	podman pull quay.io/ceph/keepalived:2.1.5
-	podman pull quay.io/ceph/haproxy:2.6
-	podman pull quay.io/ceph/haproxy:2.3
-	podman pull quay.io/ceph/promtail:3.0.0
-	podman pull quay.io/ceph/nginx:1.27.3
-	podman pull quay.io/ceph/nginx:sclorg-nginx-126
-	podman pull quay.io/ceph/loki:3.0.0
-	podman pull quay.io/ceph/snmp-notifier:v1.2.1
-	podman pull quay.io/prometheus/node-exporter:v1.10.2
-	podman pull quay.io/prometheus/node-exporter:v1.9.1
-	podman pull quay.io/prometheus/prometheus:v3.11.0
-	podman pull quay.io/prometheus/prometheus:v3.6.0
-	podman pull quay.io/prometheus/alertmanager:v0.31.1
-	podman pull quay.io/prometheus/alertmanager:v0.28.1
-	podman pull quay.io/omrizeneva/elasticsearch:6.8.23
-	podman pull quay.io/omrizeneva/elasticsearch:7.16.3
-	podman pull quay.io/jaegertracing/jaeger-agent:1.62.0
-	podman pull quay.io/jaegertracing/jaeger-agent:1.29
-	podman pull quay.io/jaegertracing/jaeger-collector:1.76.0
-	podman pull quay.io/jaegertracing/jaeger-collector:1.29
-	podman pull quay.io/jaegertracing/jaeger-query:1.76.0
-	podman pull quay.io/jaegertracing/jaeger-query:1.29
-	podman pull quay.io/samba.org/samba-server:ceph20-centos-amd64
-	podman pull quay.io/samba.org/samba-server:nightly
-	podman pull quay.io/samba.org/samba-metrics:ceph20-centos-amd64
-	podman pull quay.io/oauth2-proxy/oauth2-proxy:v7.15.1
-	podman pull quay.io/oauth2-proxy/oauth2-proxy:v7.6.0
-	
-	
-	
-	podman pull quay.io/ceph/ceph-arm64:v19.2.0-20240927
-	podman pull quay.io/ceph/cn-core:v0.7
-	podman pull quay.io/ceph/spdk:25.09       Ceph fork of spdk/spdk. Used as intermediate layer for the nvmeof container.
-	podman pull quay.io/ceph/cosi:v0.1.4
-	podman pull quay.io/prometheus/mysqld-exporter:v0.19.0
-	podman pull quay.io/prometheus/mysqld-exporter:main
-	podman pull quay.io/prometheus/snmp-exporter:v0.30.1
-	podman pull quay.io/prometheus/memcached-exporter:v0.15.5
-	
-	
-	
-
-latest ceph srpms
-	https://ru.archive.ubuntu.com/mirrors/ceph/rpm-tentacle/el9/
-	
-
-win10 wan driver
-https://github.com/ceph
-
-
-
--------------------------- 
-download all packages *.rpm
-# wget -r -np -nH --cut-dirs=4 -R "index.html*" -A "*.rpm" https://download.ceph.com/rpm-tentacle/el9/x86_64/
-# httrack https://learn.microsoft.com/en-us/ -O microhelp -%v -s0 -n --continue
-
-
-httrack https://pbs.proxmox.com/docs/ -O pbs.proxmox.com -%v -s0 -n --continue
-httrack https://pve.proxmox.com/pve-docs/ -O pbs.proxmox.com -%v -s0 -n --continue
-
-httrack https://s3browser.com/ -O s3browser.com -%v -s0 -n 
-httrack https://s3browser.com/ -O s3browser.com -%v -s0 -n 
-httrack https://download.copr.fedorainfracloud.org/results/tchaikov/python-scikit-learn/epel-9-x86_64/ -%v -s0 -n 
-wget -r -np -nH --cut-dirs=4 -R "index.html*" -A "*.pdf" https://www.sciencedirect.com/journal/future-generation-computer-systems/vol/164/suppl/C
-https://www.sciencedirect.com/journal/future-generation-computer-systems/vol/164/suppl/C
-
-git clone --recurse-submodules https://github.com/Gangbiao/rbd_client
-git submodule update --init --recursive
-
-
-
-/bin/sh -c rpm --import https://www.elrepo.org/RPM-GPG-KEY-elrepo.org     && rpm --import https://www.elrepo.org/RPM-GPG-KEY-v2-elrepo.org     && dnf install -y 'dnf-command(config-manager)'     && yum install -y https://www.elrepo.org/elrepo-release-9.el9.elrepo.noarch.rpm     && dnf config-manager --set-enabled crb     && dnf install  -y         rpm-build         git-core \tepel-release \tepel-next-release     && scripts/pkgdep.sh    && dnf  update -y  $SPDK_PKGDEP_ARGS  
-
-
------------------ download photon OS 5.2 -----------------------
-https://github.com/vmware/photon/wiki/Downloading-Photon-OS
-
---- find library included rpc_rdma_ncreatef function 
-# nm -D $(ldconfig -p | grep ntirpc | awk '{print $4}') | grep rpc_rdma_ncreatef
-
-
-pip3 install --force-reinstall   "requests==2.25.1"   "urllib3==1.26.5"
+// open each file in a new tab
+urls.forEach((url) => window.open(url, "_blank", "noopener,noreferrer"));
